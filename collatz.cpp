@@ -1,0 +1,37 @@
+# include <iostream>
+# include <vector>
+
+using namespace std;
+
+int next_no(int n){
+        if (n % 2 == 0){
+            n /= 2;
+        }
+        else{
+            n = 3 * n + 1;
+        }
+    return n;
+}
+    
+
+vector<int> seq(int n){
+    vector<int> v;
+    v.push_back(n);
+    while (n != 1) {
+        v.push_back(next_no(n));
+        n = next_no(n);
+    }
+    return v;
+}
+
+int main(int argc, char *argv[]){
+    int n = stoi(argv[1]);
+    vector<int> v;
+    v = seq(n);
+    for (int i = 0; i < v.size(); i++){
+        cout << v[i] << " ";
+    }return 0;
+}
+
+
+
