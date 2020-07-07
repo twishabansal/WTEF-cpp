@@ -18,9 +18,8 @@ vector<int> seq(int n){
     return v;
 }
 
-int main(){
-    int n;
-    cin >> n;
+int main(int argc, char *argv[1]){
+    int n = stoi(argv[1]);
     vector<int> v;
     v = seq(n);
     for (int i = 0; i < v.size(); i++){
