@@ -10,7 +10,7 @@ int factorial(int n){
 }
 
 int single_term(int n, int r){
-    return factorial(n) /(factorial(r) * factorial(n - r));
+    return factorial(n) / (factorial(r) * factorial(n - r));
 }
 
 vector<int> nth_row(int n){
