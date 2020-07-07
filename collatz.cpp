@@ -4,13 +4,7 @@
 using namespace std;
 
 int next_no(int n){
-        if (n % 2 == 0){
-            n /= 2;
-        }
-        else{
-            n = 3 * n + 1;
-        }
-    return n;
+    return n % 2 == 0 ? n /= 2 : 3 * n + 1;
 }
     
 
