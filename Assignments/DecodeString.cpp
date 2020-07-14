@@ -14,15 +14,19 @@ vector<int> digits(string s){
             count ++;
             int tmp = ans.back();
             for (int i = 0; i < ans.size() ; i++){
-                cout << ans[i] << endl;
+                cout << ans[i] << " ";
             }
+            cout << endl;
             cout << count<< endl;
             for (int i = ans.size() - 1; i > ans.size() - 1 - count; i--){
+                cout << ans[i]<<" ";
                 ans[i] ++;
+                cout << ans[i]<<endl;
             }
             for (int i = 0; i < ans.size() ; i++){
-                cout << ans[i] << endl;
+                cout << ans[i] << " ";
             }
+            cout << endl;
             ans.push_back(tmp);
         }
     }
