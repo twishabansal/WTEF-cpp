@@ -1,6 +1,4 @@
-#include <iostream>
-#include <random>
-#include <string>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -16,28 +14,30 @@ string make_word(int how_long) {
     return word;
 }
 
-bool read_compare(string filename, string gen_word){
+unordered_set<string> words(string filename){
+    unordered_set<string> words;
     fstream file;
-    string word, t, q;
-    file.open(filename.c_str());
+    file.open(filename);
+    string word;
     while (file >> word){
-        if (word == word_gen){
-            return true;
-        }
+          dict_words.insert(word);
     }
-    return false;
+    return words;
 }
+    
 
 int main(int argc, char* argv[]) {
-    string gen_word;
-    int count = 0;
-    while (count < 10) {
-        gen_word = make_word(stoi(argv[i]));
-        if (read_compare("sowpods.txt", gen_word){
-            cout <<gen_word<<" " << i << endl;
-            count ++;  
+    int word_len = stoi(argv[i]);
+    unordered_set<string> words = words("sowpods.txt");
+    int words_reqd = 10, count = 0, iter = 0;
+
+    while (words_reqd < 10) {
+        string gen_word = make_word(word_len);
+        if (words.find(gen_word) != words.end()){
+            count ++;
+            cout << iter << " " << gen_word << endl;
         }
+        iter ++;
     }
     return 0;
 }
-
