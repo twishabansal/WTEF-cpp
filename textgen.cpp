@@ -1,5 +1,6 @@
 #include <iostream>
 #include <random>
+#include <string>
 
 using namespace std;
 
@@ -15,13 +16,28 @@ string make_word(int how_long) {
     return word;
 }
 
-int main(int argc, char* argv[]) {
-
-    for (int i = 1; i < argc; ++i) {
-        cout << make_word(stoi(argv[i])) << " ";
-
+bool read_compare(string filename, string gen_word){
+    fstream file;
+    string word, t, q;
+    file.open(filename.c_str());
+    while (file >> word){
+        if (word == word_gen){
+            return true;
+        }
     }
-    cout << endl;
+    return false;
+}
+
+int main(int argc, char* argv[]) {
+    string gen_word;
+    int count = 0;
+    while (count < 10) {
+        gen_word = make_word(stoi(argv[i]));
+        if (read_compare("sowpods.txt", gen_word){
+            cout <<gen_word<<" " << i << endl;
+            count ++;  
+        }
+    }
     return 0;
 }
 
