@@ -1,8 +1,7 @@
 #include <bits/stdc++.h>
-
 using namespace std;
 
-const string ALPHABETS("abcdefghijklmnopqrstuvwxyz");
+const string ALPHABETS("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
 default_random_engine rand_engine;
 uniform_int_distribution<size_t> dist(0, ALPHABETS.length() - 1);
 
@@ -16,24 +15,23 @@ string make_word(int how_long) {
 
 unordered_set<string> words(string filename){
     unordered_set<string> words;
-    fstream file;
-    file.open(filename);
+    ifstream sowpods(filename);
     string word;
-    while (file >> word){
-          dict_words.insert(word);
+    while (sowpods >> word){
+        words.insert(word);
     }
     return words;
 }
     
 
 int main(int argc, char* argv[]) {
-    int word_len = stoi(argv[i]);
-    unordered_set<string> words = words("sowpods.txt");
+    const int word_len = stoi(argv[1]);
+    unordered_set <string> all_words = words("sowpods.txt");
     int words_reqd = 10, count = 0, iter = 0;
-
-    while (words_reqd < 10) {
+    string word;
+    while (count < words_reqd) {
         string gen_word = make_word(word_len);
-        if (words.find(gen_word) != words.end()){
+        if (all_words.find(gen_word) != all_words.end()){
             count ++;
             cout << iter << " " << gen_word << endl;
         }
