@@ -13,14 +13,12 @@ string make_word(int how_long) {
     return word;
 }
 
-unordered_set<string> words(string filename, int word_len){
+unordered_set<string> words(string filename){
     unordered_set<string> words;
     ifstream sowpods(filename);
     string word;
     while (sowpods >> word){
-        if (word.length() == word_len){
         words.insert(word);
-        }
     }
     return words;
 }
@@ -28,7 +26,7 @@ unordered_set<string> words(string filename, int word_len){
 
 int main(int argc, char* argv[]) {
     const int word_len = stoi(argv[1]);
-    unordered_set <string> all_words = words("sowpods.txt", word_len);
+    unordered_set <string> all_words = words("sowpods.txt");
     int words_reqd = 10, count = 0, iter = 0;
     string word;
     while (count < words_reqd) {
