@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+/* If it is required that the words produce have a constant length, we can load into the unordered set only the words having that particular length */
+
 const string ALPHABETS("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
 default_random_engine rand_engine;
 uniform_int_distribution<size_t> dist(0, ALPHABETS.length() - 1);
